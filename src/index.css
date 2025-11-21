@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  .pixel-text {
+    font-family: 'Press Start 2P', cursive;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    text-rendering: optimizeSpeed;
+  }
+
+  .pixel-box {
+    box-shadow:
+      4px 0 0 0 rgba(0, 0, 0, 0.2),
+      0 4px 0 0 rgba(0, 0, 0, 0.2),
+      4px 4px 0 0 rgba(0, 0, 0, 0.2),
+      4px 0 0 0 rgba(0, 0, 0, 0.2) inset,
+      0 4px 0 0 rgba(0, 0, 0, 0.2) inset;
+    image-rendering: pixelated;
+  }
+
+  .pixel-button {
+    box-shadow:
+      4px 0 0 0 rgba(0, 0, 0, 0.3),
+      0 4px 0 0 rgba(0, 0, 0, 0.3),
+      4px 4px 0 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease;
+    image-rendering: pixelated;
+  }
+
+  .pixel-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      4px 0 0 0 rgba(0, 0, 0, 0.4),
+      0 6px 0 0 rgba(0, 0, 0, 0.4),
+      4px 6px 0 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .pixel-button:active {
+    transform: translateY(2px);
+    box-shadow:
+      2px 0 0 0 rgba(0, 0, 0, 0.3),
+      0 2px 0 0 rgba(0, 0, 0, 0.3),
+      2px 2px 0 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .pixel-border-b {
+    border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .cloud {
+    position: absolute;
+    background: white;
+    opacity: 0.6;
+    border-radius: 100px;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .cloud-1 {
+    width: 100px;
+    height: 40px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .cloud-2 {
+    width: 80px;
+    height: 35px;
+    top: 15%;
+    right: 15%;
+    animation-delay: 5s;
+  }
+
+  .cloud-3 {
+    width: 120px;
+    height: 45px;
+    top: 20%;
+    left: 50%;
+    animation-delay: 10s;
+  }
+
+  .star {
+    position: absolute;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  .star-1 {
+    top: 5%;
+    right: 20%;
+    animation-delay: 0s;
+  }
+
+  .star-2 {
+    top: 12%;
+    right: 40%;
+    animation-delay: 1s;
+  }
+
+  .star-3 {
+    top: 8%;
+    left: 25%;
+    animation-delay: 2s;
+  }
+
+  .character-card {
+    animation: character-idle 2s ease-in-out infinite;
+  }
+
+  input.pixel-box,
+  textarea.pixel-box {
+    border: 3px solid #333;
+    background: white;
+  }
+
+  input.pixel-box:focus,
+  textarea.pixel-box:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow:
+      0 0 0 3px rgba(59, 130, 246, 0.3),
+      4px 0 0 0 rgba(0, 0, 0, 0.2),
+      0 4px 0 0 rgba(0, 0, 0, 0.2),
+      4px 4px 0 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+@layer utilities {
+  .animate-bounce-slow {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(20px) translateY(-10px);
+  }
+  50% {
+    transform: translateX(40px) translateY(0);
+  }
+  75% {
+    transform: translateX(20px) translateY(10px);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes character-idle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
